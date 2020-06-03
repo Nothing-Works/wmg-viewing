@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Room;
+use App\RoomType;
 use Illuminate\Http\Request;
 
 class RoomController extends Controller
@@ -12,9 +13,9 @@ class RoomController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(RoomType $type)
     {
-        //
+        return view('rooms.index', ['type' => $type->load('rooms')]);
     }
 
     /**
@@ -22,64 +23,54 @@ class RoomController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(RoomType $type)
     {
-        //
+        return view('rooms.create', ['type' => $type]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, RoomType $type)
     {
-        //
-    }
+        $type->rooms()->create($request->all());
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Room  $room
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Room $room)
-    {
-        //
+        return redirect('/rooms/'.$type->id);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Room  $room
      * @return \Illuminate\Http\Response
      */
-    public function edit(Room $room)
+    public function edit(RoomType $type, Room $room)
     {
-        //
+        return view('rooms.edit', ['type' => $type, 'room' => $room]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Room  $room
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Room $room)
+    public function update(Request $request, RoomType $type, Room $room)
     {
-        //
+        $room->update($request->all());
+
+        return redirect('/rooms/'.$type->id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Room  $room
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Room $room)
+    public function destroy(RoomType $type, Room $room)
     {
-        //
+        $room->delete();
+
+        return redirect('/rooms/'.$type->id);
     }
 }

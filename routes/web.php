@@ -35,6 +35,13 @@ Route::get('/room-types/{property}/{type}', 'RoomTypeController@edit');
 Route::patch('/room-types/{property}/{type}', 'RoomTypeController@update');
 Route::delete('/room-types/{property}/{type}', 'RoomTypeController@destroy');
 
+Route::get('/rooms/{type}', 'RoomController@index');
+Route::get('/rooms/{type}/create', 'RoomController@create');
+Route::post('/rooms/{type}', 'RoomController@store');
+Route::get('/rooms/{type}/{room}', 'RoomController@edit');
+Route::patch('/rooms/{type}/{room}', 'RoomController@update');
+Route::delete('/rooms/{type}/{room}', 'RoomController@destroy');
+
 Route::get('/admin', function () {
     return view('admin');
 });
