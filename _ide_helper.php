@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 7.14.1 on 2020-06-03 08:54:27.
+ * Generated for Laravel 7.14.1 on 2020-06-03 12:29:58.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -19287,6 +19287,27 @@ namespace Illuminate\Support {
     class Fluent {}
 }
 
+namespace App {
+    /**
+    * @method \Illuminate\Database\Eloquent\Collection|Property[]|Property create($attributes = [])
+    * @method \Illuminate\Database\Eloquent\Collection|Property[]|Property make($attributes = [])
+    */
+    class PropertyFactoryBuilder extends \Illuminate\Database\Eloquent\FactoryBuilder {}
+}
+namespace App {
+    /**
+    * @method \Illuminate\Database\Eloquent\Collection|Room[]|Room create($attributes = [])
+    * @method \Illuminate\Database\Eloquent\Collection|Room[]|Room make($attributes = [])
+    */
+    class RoomFactoryBuilder extends \Illuminate\Database\Eloquent\FactoryBuilder {}
+}
+namespace App {
+    /**
+    * @method \Illuminate\Database\Eloquent\Collection|RoomType[]|RoomType create($attributes = [])
+    * @method \Illuminate\Database\Eloquent\Collection|RoomType[]|RoomType make($attributes = [])
+    */
+    class RoomTypeFactoryBuilder extends \Illuminate\Database\Eloquent\FactoryBuilder {}
+}
 namespace App {
     /**
     * @method \Illuminate\Database\Eloquent\Collection|User[]|User create($attributes = [])

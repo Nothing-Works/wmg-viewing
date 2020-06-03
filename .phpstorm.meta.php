@@ -5,7 +5,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2020-06-03 08:54:28.
+    * Generated on 2020-06-03 12:29:59.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -1269,6 +1269,9 @@ namespace PHPSTORM_META {
 
 	override(\factory(0), map([
         '' => '@FactoryBuilder',
+        'App\Property' => \App\PropertyFactoryBuilder::class,
+        'App\Room' => \App\RoomFactoryBuilder::class,
+        'App\RoomType' => \App\RoomTypeFactoryBuilder::class,
         'App\User' => \App\UserFactoryBuilder::class,
 	]));
 
