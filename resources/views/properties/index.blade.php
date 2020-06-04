@@ -14,7 +14,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">
-                                <a href="/room-types/{{$property->id}}">
+                                <a href="/properties/{{$property->id}}/room-types">
                                     {{$property->name}}
                                 </a>
                             </h5>

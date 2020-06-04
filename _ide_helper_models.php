@@ -12,6 +12,37 @@
 
 namespace App{
 /**
+ * App\Manager
+ *
+ * @property int $id
+ * @property string $name
+ * @property string $email
+ * @property int $admin
+ * @property \Illuminate\Support\Carbon|null $email_verified_at
+ * @property string $password
+ * @property string|null $remember_token
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
+ * @property-read int|null $notifications_count
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Manager newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Manager newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Manager query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Manager whereAdmin($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Manager whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Manager whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Manager whereEmailVerifiedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Manager whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Manager whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Manager wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Manager whereRememberToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Manager whereUpdatedAt($value)
+ */
+	class Manager extends \Eloquent {}
+}
+
+namespace App{
+/**
  * App\Property
  *
  * @property int $id
@@ -42,6 +73,7 @@ namespace App{
  * @property int $room_type_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\RoomType $roomType
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Room newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Room newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Room query()
@@ -60,10 +92,12 @@ namespace App{
  *
  * @property int $id
  * @property string $name
- * @property int|null $property_id
+ * @property int $property_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Property|null $property
+ * @property-read \App\Property $property
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Room[] $rooms
+ * @property-read int|null $rooms_count
  * @method static \Illuminate\Database\Eloquent\Builder|\App\RoomType newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\RoomType newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\RoomType query()
@@ -83,6 +117,7 @@ namespace App{
  * @property int $id
  * @property string $name
  * @property string $email
+ * @property int $admin
  * @property \Illuminate\Support\Carbon|null $email_verified_at
  * @property string $password
  * @property string|null $remember_token
@@ -93,6 +128,7 @@ namespace App{
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereAdmin($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereEmailVerifiedAt($value)

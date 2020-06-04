@@ -5,14 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="d-flex justify-content-between">
-                <h1>Edit RoomType</h1>
-                <form action="/room-types/{{$property->id}}/{{$type->id}}" method="POST">
+                <h1>Edit RoomType for {{$property->name}}</h1>
+                <form action="/properties/{{$property->id}}/room-types/{{$type->id}}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
             </div>
-            <form action="/room-types/{{$property->id}}/{{$type->id}}" method="POST">
+            <form action="/properties/{{$property->id}}/room-types/{{$type->id}}" method="POST">
                 @csrf
                 @method('PATCH')
                 <div class="form-group">

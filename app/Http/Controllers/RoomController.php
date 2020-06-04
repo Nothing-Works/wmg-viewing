@@ -37,7 +37,7 @@ class RoomController extends Controller
     {
         $type->rooms()->create($request->all());
 
-        return redirect('/rooms/'.$type->id);
+        return redirect('/room-type/'.$type->id.'/rooms');
     }
 
     /**
@@ -59,7 +59,7 @@ class RoomController extends Controller
     {
         $room->update($request->all());
 
-        return redirect('/rooms/'.$type->id);
+        return redirect('/room-type/'.$type->id.'/rooms');
     }
 
     /**
@@ -71,6 +71,6 @@ class RoomController extends Controller
     {
         $room->delete();
 
-        return redirect('/rooms/'.$type->id);
+        return redirect('/room-type/'.$type->id.'/rooms');
     }
 }

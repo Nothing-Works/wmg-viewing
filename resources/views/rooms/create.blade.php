@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <h1>Create Room</h1>
-            <form action="/rooms/{{$type->id}}" method="POST">
+            <h1>Create Room for {{$type->name}}</h1>
+            <form action="/room-type/{{$type->id}}/rooms" method="POST">
                 @csrf
                 <div class="form-group">
                     <label for="name">Room</label>

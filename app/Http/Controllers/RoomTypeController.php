@@ -15,7 +15,7 @@ class RoomTypeController extends Controller
      */
     public function index(Property $property)
     {
-        return view('room-types.index', ['property' => $property->load('roomTypes')]);
+        return view('room_types.index', ['property' => $property->load('roomTypes')]);
     }
 
     /**
@@ -25,7 +25,7 @@ class RoomTypeController extends Controller
      */
     public function create(Property $property)
     {
-        return view('room-types.create', ['property' => $property]);
+        return view('room_types.create', ['property' => $property]);
     }
 
     /**
@@ -37,7 +37,7 @@ class RoomTypeController extends Controller
     {
         $property->roomTypes()->create($request->all());
 
-        return redirect('/room-types/'.$property->id);
+        return redirect('/properties/'.$property->id.'/room-types');
     }
 
     /**
@@ -47,7 +47,7 @@ class RoomTypeController extends Controller
      */
     public function edit(Property $property, RoomType $type)
     {
-        return view('room-types.edit', ['type' => $type, 'property' => $property]);
+        return view('room_types.edit', ['type' => $type, 'property' => $property]);
     }
 
     /**
@@ -59,7 +59,7 @@ class RoomTypeController extends Controller
     {
         $type->update($request->all());
 
-        return redirect('/room-types/'.$property->id);
+        return redirect('/properties/'.$property->id.'/room-types');
     }
 
     /**
@@ -71,6 +71,6 @@ class RoomTypeController extends Controller
     {
         $type->delete();
 
-        return redirect('/room-types/'.$property->id);
+        return redirect('/properties/'.$property->id.'/room-types');
     }
 }
