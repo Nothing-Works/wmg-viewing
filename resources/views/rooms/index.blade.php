@@ -16,7 +16,11 @@
                             <h5 class="card-title">
                                 {{$room->room_number}}
                             </h5>
-                            <a href="/room-type/{{$type->id}}/rooms/{{$room->id}}" class="btn btn-primary">Edit It</a>
+                            <div class="d-flex justify-content-between">
+                                <a href="/room-type/{{$type->id}}/rooms/{{$room->id}}" class="btn btn-primary">Edit
+                                    It</a>
+                                <a href="/availabilities/create?room={{$room->id}}" class="btn btn-secondary">Set Up</a>
+                            </div>
                         </div>
                     </div>
                 </div>

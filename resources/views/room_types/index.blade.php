@@ -18,8 +18,12 @@
                                     {{$type->name}}
                                 </a>
                             </h5>
-                            <a href="/properties/{{$property->id}}/room-types/{{$type->id}}"
-                                class="btn btn-primary">Edit It</a>
+                            <div class="d-flex justify-content-between">
+                                <a href="/properties/{{$property->id}}/room-types/{{$type->id}}"
+                                    class="btn btn-primary">Edit It</a>
+                                <a href="/availabilities/create?roomType={{$type->id}}" class="btn btn-secondary">Set
+                                    Up</a>
+                            </div>
                         </div>
                     </div>
                 </div>

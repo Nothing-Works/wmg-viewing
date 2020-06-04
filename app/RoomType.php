@@ -17,4 +17,9 @@ class RoomType extends Model
     {
         return $this->hasMany(Room::class);
     }
+
+    public function availabilities()
+    {
+        return $this->morphMany(Availability::class, 'available');
+    }
 }
