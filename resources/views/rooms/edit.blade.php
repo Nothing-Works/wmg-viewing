@@ -17,7 +17,7 @@
                 @method('PATCH')
                 <div class="form-group">
                     <label for="name">Room</label>
-                    <input type="text" class="form-control" name="room_number" value="{{$room->room_number}}">
+                    <input type="text" class="form-control" name="name" value="{{$room->name}}">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

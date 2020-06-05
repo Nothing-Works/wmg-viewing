@@ -12,6 +12,38 @@
 
 namespace App{
 /**
+ * App\Availability
+ *
+ * @property int $id
+ * @property string $time
+ * @property int $open_home
+ * @property int $booked
+ * @property int $total_people
+ * @property string $available_type
+ * @property int $available_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent $available
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\User[] $users
+ * @property-read int|null $users_count
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Availability newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Availability newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Availability query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Availability whereAvailableId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Availability whereAvailableType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Availability whereBooked($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Availability whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Availability whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Availability whereOpenHome($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Availability whereTime($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Availability whereTotalPeople($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Availability whereUpdatedAt($value)
+ */
+	class Availability extends \Eloquent {}
+}
+
+namespace App{
+/**
  * App\Manager
  *
  * @property int $id
@@ -23,6 +55,8 @@ namespace App{
  * @property string|null $remember_token
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Availability[] $availabilities
+ * @property-read int|null $availabilities_count
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Manager newModelQuery()
@@ -69,17 +103,19 @@ namespace App{
  * App\Room
  *
  * @property int $id
- * @property string $room_number
+ * @property string $name
  * @property int $room_type_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Availability[] $availabilities
+ * @property-read int|null $availabilities_count
  * @property-read \App\RoomType $roomType
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Room newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Room newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Room query()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Room whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Room whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Room whereRoomNumber($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Room whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Room whereRoomTypeId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Room whereUpdatedAt($value)
  */
@@ -95,6 +131,8 @@ namespace App{
  * @property int $property_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Availability[] $availabilities
+ * @property-read int|null $availabilities_count
  * @property-read \App\Property $property
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Room[] $rooms
  * @property-read int|null $rooms_count
@@ -123,6 +161,8 @@ namespace App{
  * @property string|null $remember_token
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Availability[] $availabilities
+ * @property-read int|null $availabilities_count
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User newModelQuery()

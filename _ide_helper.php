@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 7.14.1 on 2020-06-04 07:54:13.
+ * Generated for Laravel 7.14.1 on 2020-06-05 01:17:55.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -19287,6 +19287,13 @@ namespace Illuminate\Support {
     class Fluent {}
 }
 
+namespace App {
+    /**
+    * @method \Illuminate\Database\Eloquent\Collection|Availability[]|Availability create($attributes = [])
+    * @method \Illuminate\Database\Eloquent\Collection|Availability[]|Availability make($attributes = [])
+    */
+    class AvailabilityFactoryBuilder extends \Illuminate\Database\Eloquent\FactoryBuilder {}
+}
 namespace App {
     /**
     * @method \Illuminate\Database\Eloquent\Collection|Property[]|Property create($attributes = [])

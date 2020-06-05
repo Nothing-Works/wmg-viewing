@@ -1,5 +1,6 @@
 <?php
 
+use App\Availability;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Route;
 
@@ -15,9 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $time = Carbon::create(2020, 6, 4, 21, 10, 0, 'Pacific/Auckland');
+    return Availability::find(1)->toJson();
+    // $time = Carbon::create(2020, 6, 4, 21, 10, 0, 'Pacific/Auckland');
 
-    return $time->tz('Pacific/Auckland')->toDateTimeLocalString();
+    // return $time->tz('Pacific/Auckland')->toDateTimeLocalString();
 
     return view('welcome');
 });
@@ -56,6 +58,7 @@ Route::delete('/room-type/{type}/rooms/{room}', 'RoomController@destroy');
 
 Route::get('/availabilities/create', 'AvailabilityController@create');
 Route::post('/availabilities', 'AvailabilityController@store');
+Route::get('/availabilities', 'AvailabilityController@index');
 
 Route::get('/admin', function () {
     return view('admin');

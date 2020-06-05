@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Availability;
+use App\Room;
+use App\RoomType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Str;
 
 class AvailabilityController extends Controller
 {
@@ -14,6 +18,7 @@ class AvailabilityController extends Controller
      */
     public function index()
     {
+        return view('availabilities.index', ['availabilities' => Availability::all()]);
     }
 
     /**
@@ -34,9 +39,13 @@ class AvailabilityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        dd($request->all());
+        $allAvailabilities = $this->prepareDate()->map(fn ($time) => new Availability(['time' => $time]));
+
+        $this->findType()->availabilities()->saveMany($allAvailabilities);
+
+        return redirect('/availabilities');
     }
 
     /**
@@ -73,5 +82,35 @@ class AvailabilityController extends Controller
      */
     public function destroy(Availability $availability)
     {
+    }
+
+    private function findType()
+    {
+        $available = null;
+
+        if (request()->filled('room')) {
+            $available = Room::findOrFail(request()->input('room'));
+        }
+        if (request()->filled('roomType')) {
+            $available = RoomType::findOrFail(request()->input('roomType'));
+        }
+
+        if ($available) {
+            return $available;
+        }
+
+        abort(404);
+    }
+
+    private function prepareDate()
+    {
+        $dates = Str::of(request()->input('date'))->explode(',');
+        $times = Str::of(request()->input('times'))->explode(',');
+
+        return $dates
+            ->crossJoin($times)
+            ->map(fn ($item) => implode(' ', $item))
+            ->map(fn ($item) => Carbon::parse($item))
+        ;
     }
 }

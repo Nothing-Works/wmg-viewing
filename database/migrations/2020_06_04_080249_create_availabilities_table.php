@@ -13,8 +13,9 @@ class CreateAvailabilitiesTable extends Migration
     {
         Schema::create('availabilities', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('time');
+            $table->dateTimeTz('time');
             $table->boolean('open_home')->default(false);
+            $table->boolean('booked')->default(false);
             $table->integer('total_people')->default(0);
             $table->morphs('available');
             $table->timestamps();

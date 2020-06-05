@@ -14,7 +14,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">
-                                {{$room->room_number}}
+                                {{$room->name}}
                             </h5>
                             <div class="d-flex justify-content-between">
                                 <a href="/room-type/{{$type->id}}/rooms/{{$room->id}}" class="btn btn-primary">Edit

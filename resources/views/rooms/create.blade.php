@@ -9,7 +9,7 @@
                 @csrf
                 <div class="form-group">
                     <label for="name">Room</label>
-                    <input type="text" class="form-control" name="room_number">
+                    <input type="text" class="form-control" name="name">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
